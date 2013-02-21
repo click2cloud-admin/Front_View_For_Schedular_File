@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @acd.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @acd.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @acd.email %>
+</p>
+
+<p>
+  <b>Encrypted password:</b>
+  <%= @acd.encrypted_password %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @acd.phone %>
+</p>
+
+<p>
+  <b>Skype:</b>
+  <%= @acd.skype %>
+</p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @acd.facebook %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @acd.twitter %>
+</p>
+  
+<p>
+  <b>Longitude:</b>
+  <%= @acd.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @acd.latitude %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @acd.location %>
+</p>
+<p>
+<%if @acd.architect %><b>I am an architect. <%end%>
+<%if @acd.gc %><b>&nbsp;&nbsp;I am gc. <%end%>
+</p>
+
+<p>
+  <b>Architect:</b>
+  <%= @acd.architect %>
+</p>
+
+<p>
+  <b>Gc:</b>
+  <%= @acd.gc %>
+</p>
+
+
+  
+<h3>Location in the Map</h3>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@acd.latitude}%2C#{@acd.longitude}" %>   </br>       
+<a class="tiny button" <%= link_to 'Edit', edit_acd_path(@acd) %> </a>
+<a class="tiny button" <%= link_to 'Back', acds_path %>

@@ -1,0 +1,22 @@
+<div class="row">
+<div class="panel">
+<%= form_tag addschedule_acds_path, :method => :get do %>
+
+   <legend>send by hour, minute, day!</legend>
+   <div class="three columns">
+   Hour<%= select_tag "hour", options_for_select(Acd::HOURS, @hour), :include_blank=>true %> 
+   </div>
+   <div class="three columns">
+   Minute<%= select_tag "minute", options_for_select( Acd::MINUTES, @minute), :include_blank=>true %>
+   </div>  
+   <div class="three columns">
+   Day<%= select_tag "day", options_for_select( Acd::DAYS, @day), :include_blank=>true %>
+   </div>
+   <div class="three columns">
+   Task<%= text_field_tag :taskroute, params[:taskroute] %>
+   </div>  
+  
+   <%= submit_tag "Submit", :class=>"small round button", :name => nil%>
+
+<% end %>
+</div></div>

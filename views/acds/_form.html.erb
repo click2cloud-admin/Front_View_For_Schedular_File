@@ -1,0 +1,62 @@
+<%= form_for(@acd) do |f| %>
+ 
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :encrypted_password %><br />
+    <%= f.text_field :encrypted_password %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :skype %><br />
+    <%= f.text_field :skype %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+  <%= f.label :architect %> 
+  <%= f.check_box :architect %>
+  </div>
+  <div class="field">
+  <%= f.label :gc %> 
+  <%= f.check_box :gc %>
+  </div>
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

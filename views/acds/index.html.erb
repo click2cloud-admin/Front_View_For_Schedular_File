@@ -1,0 +1,112 @@
+<h1>Listing acds</h1>
+
+<%= form_tag anotherindex_acds_path, :method => :get do %>
+
+  <p> <%= text_field_tag :search, params[:search] %></p>
+  <p>  Distance+/- <%= select_tag "Distance", options_for_select( Acd::DISTANCES, @Distance), :include_blank=>true %></p>
+    
+<div class="row">
+	<div class="eleven columns">
+    <%= check_box_tag "architect", "On", @architect %>Choose Architect
+    &nbsp;&nbsp;&nbsp;<b>|</b> &nbsp;&nbsp;&nbsp;<%= check_box_tag "gc", "On", @gc %>Choose gc 
+    </div>     
+    <div class="one columns end">
+    <%= submit_tag "Search", :class=>"small round button", :name => nil%>
+    </div>
+</div>
+<% end %>
+<hr />    
+<form action="/acds/sendmail">
+
+<table class="twelve">
+  <legend>All acds</legend>
+  <thead>
+    <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Location</th>
+    <th>More Details</th> 
+    <th>Action</th>
+    <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+    <% @acds.each do |acd| %>
+  <tr>
+    <td><%= acd.first_name %></td>
+    <td><%= acd.last_name %></td>
+    <td><%= acd.email %></td>
+    <td><%= acd.location %></td>
+    <td><%= link_to 'Read More or Edit»', acd %></td>
+    <td><%= link_to 'Delete', acd, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= check_box_tag "selacds[]",acd.id %> </td>
+  </tr>    
+   <% end %>
+ </tbody>
+</table>      
+
+<script type="text/javascript">
+      function selectAll(){
+        $("input:checkbox").each(function(){
+          $(this).attr('checked', true);
+        });
+
+        return false;
+      }
+      
+      function deleteAll(){
+        $("input:checkbox").each(function(){
+          $(this).attr('checked', false);
+        });
+
+        return false;
+      }
+</script><a class=" secondary button" onclick="selectAll()"  >Select All</a><a class=" secondary button" onclick="deleteAll()"  >Delete All</a>
+
+ <% if ! @tempacds== nil? %> 
+<table class="twelve">
+	<legend>Not qualified acds</legend>
+	<thead>
+    <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Location</th>
+    <th>More Details</th> 
+    <th>Action</th>
+    <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tempacds.each do |tacd| %>
+  <tr>
+    <td><%= tacd.first_name %></td>
+    <td><%= tacd.last_name %></td>
+    <td><%= tacd.email %></td>
+    <td><%= tacd.location %></td>
+    <td><%= link_to 'Read More or Edit»', tacd %></td>
+    <td><%= link_to 'Delete', tacd, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= check_box_tag "selacds[]", tacd.id %> </td>
+  </tr>    
+   <% end %>   
+   <% end %> 
+   
+   
+</tbody>
+</table>
+
+<div class="panel">
+<p><label for="email_subject">Subject</label>
+<%= text_field 'email', 'subject' %></p>
+
+<p><label for="email_message">Message</label><br/>
+<%= text_area 'email', 'message' %></p>
+
+
+<%= submit_tag "Send Email To Selected Acds" , :name => "Di selected" %>  </div>
+</form>  
+<a class=" secondary button" <%= link_to 'New Acd', new_acd_path %> </a>
+
+<!-- <a class="tiny button" href="/emailer/index">Send an email</a> -->

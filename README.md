@@ -10,14 +10,13 @@ which means your task at 11:25 every Thursday.
 schedule model strores hour, minute, day parameters, which fetch parameters from task.rb file first and then write into
 task.rb through File class.
 
-for show-------------------------</br>
-schedule/index : lists  all tasks.
+For show:  schedule/index : lists  all tasks.
 
-for add new schedule-------------
+For add new schedule-------------
 acds/editsch : editsch.html.erb gives a form for you to input 'hour', 'minute', 'day' , render parameters to 'addschedule'
 acds/addschedule : get these parameters and write in to task.rb, then write into schedule database.
 
-for delete-----------------------
+For delete-----------------------
 
 schedules/destroy
 overwrite the destroy method, which could remove the task from task.rb and then remove from database.

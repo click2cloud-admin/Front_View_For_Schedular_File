@@ -1,5 +1,4 @@
 FrontViewForSchedular
-Specially thanks for Jiecong Wang's help.
 =====================
 
 this is a front end View which could help to add schedules in web page using rufus schedules
@@ -22,3 +21,6 @@ for delete-----------------------
 
 schedules/destroy
 overwrite the destroy method, which could remove the task from task.rb and then remove from database.
+
+
+thanks for Jiecong Wang's help.

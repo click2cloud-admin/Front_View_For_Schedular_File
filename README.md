@@ -10,7 +10,7 @@ which means your task at 11:25 every Thursday.
 schedule model strores hour, minute, day parameters, which fetch parameters from task.rb file first and then write into
 task.rb through File class.
 
-for show-------------------------
+for show-------------------------</br>
 schedule/index : lists  all tasks.
 
 for add new schedule-------------
